@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #0E6655;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.StudentsController">
+   <children>
+      <Label layoutX="52.0" prefHeight="68.0" prefWidth="497.0" text="You have come to the student registration page!" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="studentRegisterName" layoutX="53.0" layoutY="105.0" promptText="Enter Student Name" style="-fx-background-color: yellow;" />
+      <TextField fx:id="studentRegisterSurName" layoutX="353.0" layoutY="105.0" promptText="Enter Student Surname" style="-fx-background-color: yellow;" />
+      <TextField fx:id="studentRegisterAdress" layoutX="353.0" layoutY="210.0" promptText="Enter Student Adress" style="-fx-background-color: yellow;" />
+      <TextField fx:id="studentRegisterPhone" layoutX="53.0" layoutY="210.0" promptText="Enter Student Phone" style="-fx-background-color: yellow;" />
+      <Button layoutX="52.0" layoutY="467.0" mnemonicParsing="false" onAction="#saveStudentToDatabase" prefHeight="31.0" prefWidth="497.0" style="-fx-background-color: #629DFF;" text="Save">
+         <font>
+            <Font name="Britannic Bold" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="353.0" layoutY="61.0" prefHeight="31.0" prefWidth="187.0" text="Student SurName:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="353.0" layoutY="161.0" prefHeight="31.0" prefWidth="187.0" text="Student Adress:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="161.0" prefHeight="31.0" prefWidth="187.0" text="Student Phone:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="61.0" prefHeight="31.0" prefWidth="187.0" text="Student Name:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="studentRegisterPOB" layoutX="353.0" layoutY="316.0" promptText="Enter Student PlaceOfBirth" style="-fx-background-color: yellow;" />
+      <Label layoutX="353.0" layoutY="359.0" prefHeight="31.0" prefWidth="187.0" text="Student BirthDay:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="studentRegisterSchool" layoutX="53.0" layoutY="316.0" promptText="Enter Student School" style="-fx-background-color: yellow;" />
+      <Label layoutX="53.0" layoutY="269.0" prefHeight="31.0" prefWidth="187.0" text="Student School:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="studentRegisterFBook" layoutX="53.0" layoutY="403.0" promptText="Enter Student FavouriteBook" style="-fx-background-color: yellow;" />
+      <Label layoutX="53.0" layoutY="359.0" prefHeight="31.0" prefWidth="187.0" text="Student FavouriteBook :" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="16.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="studentBirthDay" layoutX="353.0" layoutY="403.0" promptText="Enter Birth Day" style="-fx-background-color: yellow;" />
+      <Label layoutX="353.0" layoutY="269.0" prefHeight="31.0" prefWidth="187.0" text="Student PlaceOfBirth:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

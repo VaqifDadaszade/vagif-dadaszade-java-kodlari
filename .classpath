@@ -11,10 +11,12 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javafx">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/java_FX">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="libs/mysql-connector-java-8.0.30.jar"/>
+	<classpathentry kind="lib" path="libs/controlsfx-11.1.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
