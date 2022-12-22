@@ -1,5 +1,6 @@
 package vagif.dadaszade;
 
+import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
@@ -18,8 +19,11 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 public class StudentsController implements Initializable {
@@ -40,9 +44,13 @@ public class StudentsController implements Initializable {
 	@FXML
 	private DatePicker studentBirthDay;
 	@FXML
+	private Label rowCountLabel;
+	@FXML
 	private ComboBox<String> studentNationality;
 	@FXML
 	private ListView<String> myListView;
+	@FXML
+	private ImageView ProgLanIMG;
 
 	@FXML
 	private void saveStudentToDatabase() {
@@ -145,6 +153,7 @@ public class StudentsController implements Initializable {
 	private void onAddToListView() {
 		String name1 = studentRegisterName.getText();
 		myListView.getItems().add(name1);
+		rowCountLabel.setText("Row Count: "+myListView.getItems().size());
 	}
 
 	@FXML
@@ -155,6 +164,7 @@ public class StudentsController implements Initializable {
 			return;
 		}
 		myListView.getItems().remove(selectedIndex);
+		rowCountLabel.setText("Row Count: "+myListView.getItems().size());
 	}
 	@FXML
 	private void selectName() {
@@ -169,5 +179,17 @@ public class StudentsController implements Initializable {
 			Utility.showMessage("Warning", "You edit this from the table", Pos.TOP_CENTER, 4);
 			myListView.getItems().set(selectedIndex, name1);
 		}
+	}
+	String[] images = {"Delphi.png","Fstar-oficcal-logo-2015.png","ISO_C++_Logo.svg.png","java_logo_640.jpg","jython.png"
+			,"Python-Symbol.png","SQL_Logo.png"};
+	int i=0;
+	@FXML
+	private void showIMG() {
+		File file= new File("/images"+images[i++]);
+		if(i==images.length) {
+			i=0;
+		}
+		Image image = new Image(file.toURI().toString());
+		ProgLanIMG.setImage(image);
 	}
 }

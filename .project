@@ -20,4 +20,41 @@
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>images/Delphi.png</name>
+			<type>1</type>
+			<location>C:/Users/User/Desktop/Vagif/Yeni klasör/Delphi.png</location>
+		</link>
+		<link>
+			<name>images/Fstar-official-logo-2015.png</name>
+			<type>1</type>
+			<location>C:/Users/User/Desktop/Vagif/Yeni klasör/Fstar-official-logo-2015.png</location>
+		</link>
+		<link>
+			<name>images/ISO_C++_Logo.svg.png</name>
+			<type>1</type>
+			<location>C:/Users/User/Desktop/Vagif/Yeni klasör/ISO_C++_Logo.svg.png</location>
+		</link>
+		<link>
+			<name>images/Python-Symbol.png</name>
+			<type>1</type>
+			<location>C:/Users/User/Desktop/Vagif/Yeni klasör/Python-Symbol.png</location>
+		</link>
+		<link>
+			<name>images/SQL_Logo.png</name>
+			<type>1</type>
+			<location>C:/Users/User/Desktop/Vagif/Yeni klasör/SQL_Logo.png</location>
+		</link>
+		<link>
+			<name>images/java_logo_640.jpg</name>
+			<type>1</type>
+			<location>C:/Users/User/Desktop/Vagif/Yeni klasör/java_logo_640.jpg</location>
+		</link>
+		<link>
+			<name>images/jython.png</name>
+			<type>1</type>
+			<location>C:/Users/User/Desktop/Vagif/Yeni klasör/jython.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>
