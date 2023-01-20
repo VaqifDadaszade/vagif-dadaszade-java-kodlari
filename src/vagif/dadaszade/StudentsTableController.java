@@ -8,12 +8,16 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Observable;
 import java.util.ResourceBundle;
 
 import javax.management.Notification;
 
 import org.controlsfx.control.Notifications;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -21,12 +25,15 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
-public class StudentsController implements Initializable {
+public class StudentsTableController implements Initializable {
 	@FXML
 	private TextField studentRegisterName;
 	@FXML
@@ -51,7 +58,29 @@ public class StudentsController implements Initializable {
 	private ListView<String> myListView;
 	@FXML
 	private ImageView ProgLanIMG;
-
+	@FXML
+	private TableView<Student> studentsTable;
+	@FXML
+	private TableColumn<Student,String> idColumn;
+	@FXML
+	private TableColumn<Student,String> nameColumn;
+	@FXML
+	private TableColumn<Student,String> surnameColumn;
+	@FXML
+	private TableColumn<Student,Integer> phoneColumn;
+	@FXML
+	private TableColumn<Student,String> addressColumn;
+	@FXML
+	private TableColumn<Student,String> schoolColumn;
+	@FXML
+	private TableColumn<Student,String> pobColumn;
+	@FXML
+	private TableColumn<Student,String> fbColumn;
+	@FXML
+	private TableColumn<Student,LocalDate> birthDayColumn;
+	@FXML
+	private TableColumn<Student,String> nationalityColumn;
+	
 	@FXML
 	private void saveStudentToDatabase() {
 		try {
@@ -106,7 +135,11 @@ public class StudentsController implements Initializable {
 							+ "','" + FB + "','" + birthday + "','" + nationality + "');");
 
 			ResultSet rs = st.executeQuery("select * from students order by id desc");
+			
+			ArrayList<Student> students = new ArrayList<Student>();
+			
 			while (rs.next()) {
+				int id = rs.getInt("id");
 				String name1 = rs.getString("name");
 				String surname1 = rs.getString("surname");
 				String phone1 = rs.getString("phone");
@@ -122,12 +155,14 @@ public class StudentsController implements Initializable {
 				} else {
 					birthday = d.toLocalDate();
 				}
-				System.out.printf(
-						"Name: %s," + "SurName: %s," + "Phone: %s," + "Adress: %s," + "School: %s,"
-								+ "Place_Of_Birth: %s," + "Favourite_Book: %s," + "Birth_Day: %s" + "Nationality: ",
-						name1, surname1, phone1, adress1, school1, POB1, FB1, birthday1, nationality1);
-				System.out.println();
+				
+				Student s = new Student(id, name1, surname1, null, adress1, school1, POB1, FB1, birthday1, nationality1);
+				students.add(s);
 			}
+			
+			ObservableList<Student> list= FXCollections.observableArrayList();
+			list.addAll(students);
+			studentsTable.setItems(list);
 
 			conn.close();
 
@@ -139,47 +174,28 @@ public class StudentsController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		{
-			studentNationality.getItems().add("AZ");
+			studentNationality.getItems().add("AZE");
 			studentNationality.getItems().add("RUS");
 			studentNationality.getItems().add("TUR");
 			studentNationality.getItems().add("ENG");
 			studentNationality.getItems().add("GER");
 			studentNationality.getItems().add("USA");
 			studentNationality.getItems().add("JAP");
+			
+			idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+			nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+			surnameColumn.setCellValueFactory(new PropertyValueFactory<>("surName"));
+			phoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
+			addressColumn.setCellValueFactory(new PropertyValueFactory<>("adress"));
+			schoolColumn.setCellValueFactory(new PropertyValueFactory<>("school"));
+			pobColumn.setCellValueFactory(new PropertyValueFactory<>("place_og_birth"));
+			fbColumn.setCellValueFactory(new PropertyValueFactory<>("favourite_book"));
+			birthDayColumn.setCellValueFactory(new PropertyValueFactory<>("birth_day"));
+			nationalityColumn.setCellValueFactory(new PropertyValueFactory<>("nationality"));
+			
 		}
 	}
 
-	@FXML
-	private void onAddToListView() {
-		String name1 = studentRegisterName.getText();
-		myListView.getItems().add(name1);
-		rowCountLabel.setText("Row Count: "+myListView.getItems().size());
-	}
-
-	@FXML
-	private void deleteName() {
-		int selectedIndex = myListView.getSelectionModel().getSelectedIndex();
-		if (selectedIndex == -1) {
-			Utility.showMessage("Warning", "Select from the list", Pos.TOP_CENTER, 5);
-			return;
-		}
-		myListView.getItems().remove(selectedIndex);
-		rowCountLabel.setText("Row Count: "+myListView.getItems().size());
-	}
-	@FXML
-	private void selectName() {
-		String selectName= myListView.getSelectionModel().getSelectedItem();
-		Utility.showMessage("You selected this from the table", selectName, Pos.TOP_CENTER, 4);
-	}
-	@FXML
-	private void editTable() {
-		String name1=studentRegisterName.getText();
-		int selectedIndex = myListView.getSelectionModel().getSelectedIndex();
-		if(selectedIndex<0) {
-			Utility.showMessage("Warning", "You edit this from the table", Pos.TOP_CENTER, 4);
-			myListView.getItems().set(selectedIndex, name1);
-		}
-	}
 	String[] images = {"Delphi.png","Fstar-official-logo-2015.png","ISO_C++_Logo.svg.png","java_logo.jpg","jython.png"
 			,"Python-Symbol.png","SQL_Logo.png"};
 	int i=0;

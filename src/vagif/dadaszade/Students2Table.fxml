@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="832.0" prefWidth="818.0" style="-fx-background-color: #0E6655;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.StudentsTableController">
+   <children>
+      <Label layoutX="105.0" prefHeight="68.0" prefWidth="497.0" text="You have come to the student registration page!" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="studentRegisterName" layoutX="93.0" layoutY="105.0" promptText="Enter Student Name" style="-fx-background-color: yellow;" />
+      <TextField fx:id="studentRegisterSurName" layoutX="549.0" layoutY="105.0" promptText="Enter Student Surname" style="-fx-background-color: yellow;" />
+      <TextField fx:id="studentRegisterAdress" layoutX="556.0" layoutY="204.0" promptText="Enter Student Adress" style="-fx-background-color: yellow;" />
+      <TextField fx:id="studentRegisterPhone" layoutX="93.0" layoutY="204.0" promptText="Enter Student Phone" style="-fx-background-color: yellow;" />
+      <Button layoutX="94.0" layoutY="448.0" mnemonicParsing="false" onAction="#saveStudentToDatabase" prefHeight="40.0" prefWidth="81.0" style="-fx-background-color: #629DFF;" text="Save">
+         <font>
+            <Font name="Britannic Bold" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="549.0" layoutY="61.0" prefHeight="31.0" prefWidth="187.0" text="Student SurName:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="556.0" layoutY="162.0" prefHeight="31.0" prefWidth="187.0" text="Student Adress:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="162.0" prefHeight="31.0" prefWidth="187.0" text="Student Phone:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="61.0" prefHeight="31.0" prefWidth="187.0" text="Student Name:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="studentRegisterPOB" layoutX="556.0" layoutY="317.0" promptText="Enter Student PlaceOfBirth" style="-fx-background-color: yellow;" />
+      <Label layoutX="549.0" layoutY="366.0" prefHeight="31.0" prefWidth="187.0" text="Student BirthDay:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="studentRegisterSchool" layoutX="93.0" layoutY="317.0" promptText="Enter Student School" style="-fx-background-color: yellow;" />
+      <Label layoutX="93.0" layoutY="269.0" prefHeight="31.0" prefWidth="187.0" text="Student School:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="studentRegisterFBook" layoutX="93.0" layoutY="403.0" prefHeight="31.0" prefWidth="187.0" promptText="Enter Student FavouriteBook" style="-fx-background-color: yellow;" />
+      <Label layoutX="93.0" layoutY="366.0" prefHeight="31.0" prefWidth="187.0" text="Student FavouriteBook :" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="16.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="studentBirthDay" layoutX="549.0" layoutY="403.0" promptText="Enter Birth Day" style="-fx-background-color: yellow;" />
+      <Label layoutX="556.0" layoutY="269.0" prefHeight="31.0" prefWidth="187.0" text="Student PlaceOfBirth:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="studentNationality" layoutX="321.0" layoutY="105.0" prefHeight="31.0" prefWidth="187.0" promptText="Nationality" style="-fx-background-color: yellow;" />
+      <Label layoutX="321.0" layoutY="61.0" prefHeight="31.0" prefWidth="187.0" text="Student Nationality:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="rowCountLabel" layoutX="41.0" layoutY="752.0" prefHeight="31.0" prefWidth="187.0" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="22.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="ProgLanIMG" fitHeight="234.0" fitWidth="200.0" layoutX="315.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="207.0" layoutY="448.0" mnemonicParsing="false" onAction="#showIMG" prefHeight="40.0" prefWidth="108.0" style="-fx-background-color: #629DFF;" text="Show Image">
+         <font>
+            <Font name="Britannic Bold" size="16.0" />
+         </font>
+      </Button>
+      <TableView fx:id="studentsTable" layoutX="4.0" layoutY="528.0" prefHeight="290.0" prefWidth="813.0" style="-fx-background-color: #0E6655;">
+        <columns>
+            <TableColumn fx:id="idColumn" prefWidth="47.0" text="Id" />
+          <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="surnameColumn" prefWidth="75.0" text="SurName" />
+            <TableColumn fx:id="phoneColumn" prefWidth="75.0" text="Phone" />
+            <TableColumn fx:id="addressColumn" prefWidth="75.0" text="Address" />
+            <TableColumn fx:id="schoolColumn" prefWidth="75.0" text="School" />
+            <TableColumn fx:id="pobColumn" prefWidth="111.0" text="P.O.B." />
+            <TableColumn fx:id="fbColumn" prefWidth="88.0" text="F.B." />
+            <TableColumn fx:id="birthDayColumn" prefWidth="101.0" text="BirthDay" />
+            <TableColumn fx:id="nationalityColumn" prefWidth="90.0" text="Nationality" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

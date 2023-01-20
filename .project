@@ -47,14 +47,24 @@
 			<location>C:/Users/User/Desktop/Vagif/Yeni klasör/SQL_Logo.png</location>
 		</link>
 		<link>
-			<name>images/java_logo_640.jpg</name>
+			<name>images/Student.png</name>
 			<type>1</type>
-			<location>C:/Users/User/Desktop/Vagif/Yeni klasör/java_logo_640.jpg</location>
+			<location>C:/Users/User/Vagif/Yeni klasör/Student.png</location>
+		</link>
+		<link>
+			<name>images/java_logo.jpg</name>
+			<type>1</type>
+			<location>C:/Users/User/Desktop/Vagif/Yeni klasör/java_logo.jpg</location>
 		</link>
 		<link>
 			<name>images/jython.png</name>
 			<type>1</type>
 			<location>C:/Users/User/Desktop/Vagif/Yeni klasör/jython.png</location>
+		</link>
+		<link>
+			<name>src/icon/Student.png</name>
+			<type>1</type>
+			<location>C:/Users/User/Vagif/Yeni klasör/Student.png</location>
 		</link>
 	</linkedResources>
 </projectDescription>
