@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
@@ -22,10 +23,14 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -51,8 +56,6 @@ public class StudentsTableController implements Initializable {
 	private TextField studentRegisterFBook;
 	@FXML
 	private DatePicker studentBirthDay;
-	@FXML
-	private Label rowCountLabel;
 	@FXML
 	private ComboBox<String> studentNationality;
 	@FXML
@@ -202,6 +205,7 @@ public class StudentsTableController implements Initializable {
 			nationalityColumn.setCellValueFactory(new PropertyValueFactory<>("nationality"));
 
 			loadStudent();
+			studentsTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		}
 	}
 
@@ -220,7 +224,7 @@ public class StudentsTableController implements Initializable {
 	}
 
 	private void loadStudent() {
-		Connection conn =null;
+		Connection conn = null;
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -246,7 +250,8 @@ public class StudentsTableController implements Initializable {
 				} else {
 					birthday1 = d.toLocalDate();
 				}
-				Student s = new Student(id, name1, surname1, null, adress1, school1, POB1, FB1, birthday1, nationality1);
+				Student s = new Student(id, name1, surname1, phone1, adress1, school1, POB1, FB1, birthday1,
+						nationality1);
 				students.add(s);
 			}
 			ObservableList<Student> list = FXCollections.observableArrayList();
@@ -262,4 +267,29 @@ public class StudentsTableController implements Initializable {
 			}
 		}
 	}
+
+	@FXML
+	private void deleteStudent() {
+		List<Student> s = studentsTable.getSelectionModel().getSelectedItems();
+		if (s.size() == 0) {
+			Utility.showMessage("Warning", "Select a student from the list !", Pos.TOP_CENTER, 4);
+			return;
+		} else {
+			Alert alert = new Alert(AlertType.CONFIRMATION, "Delete information?", ButtonType.YES, ButtonType.NO);
+			alert.showAndWait();
+			if (alert.getResult() == ButtonType.YES) {
+				for (Student student : s) {
+					Integer selectedID = student.getId();
+					Utility.insertUpdateAndDel("delete from students where id=" + selectedID);
+				}
+			}
+			loadStudent();
+		}
+	}
+
+	@FXML
+	private void editStudent() {
+
+	}
+
 }

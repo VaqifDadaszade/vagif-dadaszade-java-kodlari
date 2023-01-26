@@ -28,11 +28,11 @@ public class Student {
 		this.surname = surname;
 	}
 
-	public Integer getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(Integer phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
@@ -86,7 +86,7 @@ public class Student {
 
 	private String name;
 	private String surname;
-	private Integer phone;
+	private String phone;
 	private String address;
 	private String school;
 	private String POB;
@@ -94,17 +94,17 @@ public class Student {
 	private LocalDate birthday;
 	private String nationality;
 	
-	public Student(Integer id,String name, String surname, Integer phone, String address, String school, String pOB, String fB,
+	public Student(Integer id,String name, String surname, String phone1, String address, String school, String pOB, String fB,
 			LocalDate birthday, String nationality) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.surname = surname;
-		this.phone = phone;
+		this.phone = phone1;
 		this.address = address;
 		this.school = school;
-		POB = pOB;
-		FB = fB;
+		this.POB = pOB;
+		this.FB = fB;
 		this.birthday = birthday;
 		this.nationality = nationality;
 	}
