@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -61,31 +62,32 @@ public class StudentsTableController implements Initializable {
 	@FXML
 	private TableView<Student> studentsTable;
 	@FXML
-	private TableColumn<Student,String> idColumn;
+	private TableColumn<Student, String> idColumn;
 	@FXML
-	private TableColumn<Student,String> nameColumn;
+	private TableColumn<Student, String> nameColumn;
 	@FXML
-	private TableColumn<Student,String> surnameColumn;
+	private TableColumn<Student, String> surnameColumn;
 	@FXML
-	private TableColumn<Student,Integer> phoneColumn;
+	private TableColumn<Student, Integer> phoneColumn;
 	@FXML
-	private TableColumn<Student,String> addressColumn;
+	private TableColumn<Student, String> addressColumn;
 	@FXML
-	private TableColumn<Student,String> schoolColumn;
+	private TableColumn<Student, String> schoolColumn;
 	@FXML
-	private TableColumn<Student,String> pobColumn;
+	private TableColumn<Student, String> pobColumn;
 	@FXML
-	private TableColumn<Student,String> fbColumn;
+	private TableColumn<Student, String> fbColumn;
 	@FXML
-	private TableColumn<Student,LocalDate> birthDayColumn;
+	private TableColumn<Student, LocalDate> birthDayColumn;
 	@FXML
-	private TableColumn<Student,String> nationalityColumn;
-	
+	private TableColumn<Student, String> nationalityColumn;
+
 	@FXML
 	private void saveStudentToDatabase() {
+		Connection conn = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_FX", "vagif", "2012");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_FX", "vagif", "2012");
 			Statement st = conn.createStatement();
 			String name = studentRegisterName.getText();
 			if (name.trim().equals("")) {
@@ -135,9 +137,9 @@ public class StudentsTableController implements Initializable {
 							+ "','" + FB + "','" + birthday + "','" + nationality + "');");
 
 			ResultSet rs = st.executeQuery("select * from students order by id desc");
-			
+
 			ArrayList<Student> students = new ArrayList<Student>();
-			
+
 			while (rs.next()) {
 				int id = rs.getInt("id");
 				String name1 = rs.getString("name");
@@ -155,20 +157,26 @@ public class StudentsTableController implements Initializable {
 				} else {
 					birthday = d.toLocalDate();
 				}
-				
-				Student s = new Student(id, name1, surname1, null, adress1, school1, POB1, FB1, birthday1, nationality1);
+
+				Student s = new Student(id, name1, surname1, null, adress1, school1, POB1, FB1, birthday1,
+						nationality1);
 				students.add(s);
 			}
-			
-			ObservableList<Student> list= FXCollections.observableArrayList();
+
+			ObservableList<Student> list = FXCollections.observableArrayList();
 			list.addAll(students);
 			studentsTable.setItems(list);
 
-			conn.close();
-
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+		loadStudent();
 	}
 
 	@Override
@@ -181,7 +189,7 @@ public class StudentsTableController implements Initializable {
 			studentNationality.getItems().add("GER");
 			studentNationality.getItems().add("USA");
 			studentNationality.getItems().add("JAP");
-			
+
 			idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
 			nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 			surnameColumn.setCellValueFactory(new PropertyValueFactory<>("surName"));
@@ -192,20 +200,66 @@ public class StudentsTableController implements Initializable {
 			fbColumn.setCellValueFactory(new PropertyValueFactory<>("favourite_book"));
 			birthDayColumn.setCellValueFactory(new PropertyValueFactory<>("birth_day"));
 			nationalityColumn.setCellValueFactory(new PropertyValueFactory<>("nationality"));
-			
+
+			loadStudent();
 		}
 	}
 
-	String[] images = {"Delphi.png","Fstar-official-logo-2015.png","ISO_C++_Logo.svg.png","java_logo.jpg","jython.png"
-			,"Python-Symbol.png","SQL_Logo.png"};
-	int i=0;
+	String[] images = { "Delphi.png", "Fstar-official-logo-2015.png", "ISO_C++_Logo.svg.png", "java_logo.jpg",
+			"jython.png", "Python-Symbol.png", "SQL_Logo.png" };
+	int i = 0;
+
 	@FXML
 	private void showIMG() {
-		File file= new File("images/"+images[i++]);
-		if(i==images.length) {
-			i=0;
+		File file = new File("images/" + images[i++]);
+		if (i == images.length) {
+			i = 0;
 		}
 		Image image = new Image(file.toURI().toString());
 		ProgLanIMG.setImage(image);
+	}
+
+	private void loadStudent() {
+		Connection conn =null;
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_FX", "vagif", "2012");
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery("select * from students order by id desc");
+			ArrayList<Student> students = new ArrayList<Student>();
+
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String name1 = rs.getString("name");
+				String surname1 = rs.getString("surname");
+				String phone1 = rs.getString("phone");
+				String adress1 = rs.getString("adress");
+				String school1 = rs.getString("school");
+				String POB1 = rs.getString("place_og_birth");
+				String FB1 = rs.getString("favourite_book");
+				Date d = rs.getDate("birth_day");
+				String nationality1 = rs.getString("nationality");
+				LocalDate birthday1 = null;
+				if (d == null) {
+
+				} else {
+					birthday1 = d.toLocalDate();
+				}
+				Student s = new Student(id, name1, surname1, null, adress1, school1, POB1, FB1, birthday1, nationality1);
+				students.add(s);
+			}
+			ObservableList<Student> list = FXCollections.observableArrayList();
+			list.addAll(students);
+			studentsTable.setItems(list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }
