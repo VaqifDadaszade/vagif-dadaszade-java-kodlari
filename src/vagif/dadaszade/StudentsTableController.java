@@ -25,6 +25,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -84,7 +85,12 @@ public class StudentsTableController implements Initializable {
 	private TableColumn<Student, LocalDate> birthDayColumn;
 	@FXML
 	private TableColumn<Student, String> nationalityColumn;
-
+	@FXML
+	private Button newStudent;
+	
+	private boolean updateMode = false;
+	private int selectedStudentId=0;
+	
 	@FXML
 	private void saveStudentToDatabase() {
 		Connection conn = null;
@@ -287,9 +293,28 @@ public class StudentsTableController implements Initializable {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	@FXML
 	private void editStudent() {
-
+		Student s=studentsTable.getSelectionModel().getSelectedItem();
+		if(s==null) {
+			Utility.showMessage("Warning", "Select a student from the list !", Pos.TOP_CENTER, 4);
+		}else {
+			studentRegisterName.setText(s.getName());
+			studentRegisterSurName.setText(s.getSurname());
+			studentRegisterPhone.setText(s.getPhone());
+			studentRegisterAdress.setText(s.getAddress());
+			studentRegisterSchool.setText(s.getSchool());
+			studentRegisterPOB.setText(s.getPOB());
+			studentRegisterFBook.setText(s.getFB());
+			studentBirthDay.setValue(s.getBirthday());
+			studentNationality.setValue(s.getNationality());
+			updateMode = true;
+			selectedStudentId=s.getId();
+			newStudent.setText("Save");
+		}
 	}
 
 }
