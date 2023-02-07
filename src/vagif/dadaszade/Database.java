@@ -29,6 +29,7 @@ public class Database {
 				String FB1 = rs.getString("favourite_book");
 				Date d = rs.getDate("birth_day");
 				String nationality1 = rs.getString("nationality");
+				String lang1=rs.getString("langs");
 				LocalDate birthday1 = null;
 				if (d == null) {
 
@@ -36,7 +37,7 @@ public class Database {
 					birthday1 = d.toLocalDate();
 				}
 				Student s = new Student(id, name1, surname1, phone1, unvan1, school1, POB1, FB1, birthday1,
-						nationality1);
+						nationality1, lang1);
 				students.add(s);
 			}
 

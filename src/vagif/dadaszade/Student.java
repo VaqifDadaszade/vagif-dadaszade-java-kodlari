@@ -2,8 +2,6 @@ package vagif.dadaszade;
 
 import java.time.LocalDate;
 
-//burdakı dəyişən adları bazadakı sütun adlarıdır
-
 public class Student {
 	private Integer id;
 	private String name;
@@ -15,6 +13,7 @@ public class Student {
 	private String favourite_book;
 	private LocalDate birth_day;
 	private String nationality;
+	private String langs;
 	public Integer getId() {
 		return id;
 	}
@@ -75,10 +74,14 @@ public class Student {
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
 	}
-	
-	
+	public String getLang() {
+		return langs;
+	}
+	public void setLang(String lang) {
+		this.langs = lang;
+	}
 	public Student(Integer id, String name, String surname, String phone, String adress, String school,
-			String place_og_birth, String favourite_book, LocalDate birth_day, String nationality) {
+			String place_og_birth, String favourite_book, LocalDate birth_day, String nationality, String lang) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -90,10 +93,7 @@ public class Student {
 		this.favourite_book = favourite_book;
 		this.birth_day = birth_day;
 		this.nationality = nationality;
+		this.langs = lang;
 	}
 	
-	
-	
-	
-
 }

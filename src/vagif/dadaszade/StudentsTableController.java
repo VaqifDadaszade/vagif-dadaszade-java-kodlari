@@ -85,6 +85,8 @@ public class StudentsTableController implements Initializable {
 	@FXML
 	private TableColumn<Student, String> nationalityColumn;
 	@FXML
+	private TableColumn<Student,String> langcolumn;
+	@FXML
 	private Button newStudent;
 	@FXML
 	private TextField searchText;
@@ -171,7 +173,7 @@ public class StudentsTableController implements Initializable {
 					String FB1 = rs.getString("favourite_book");
 					Date d = rs.getDate("birth_day");
 					String nationality1 = rs.getString("nationality");
-
+					String lang1=rs.getString("langs");
 					LocalDate birthday1 = null;
 					if (d == null) {
 
@@ -180,7 +182,7 @@ public class StudentsTableController implements Initializable {
 					}
 
 					Student s = new Student(id, name1, surname1, phone1, address1, school1, POB1, FB1, birthday1,
-							nationality1);
+							nationality1,lang1);
 					students.add(s);
 				}
 
@@ -345,6 +347,7 @@ public class StudentsTableController implements Initializable {
 				String FB1 = rs.getString("favourite_book");
 				Date d = rs.getDate("birth_day");
 				String nationality1 = rs.getString("nationality");
+				String lang1=rs.getString("langs");
 				LocalDate birthday1 = null;
 				if (d == null) {
 
@@ -352,7 +355,7 @@ public class StudentsTableController implements Initializable {
 					birthday1 = d.toLocalDate();
 				}
 				Student s = new Student(id, name1, surname1, phone1, unvan1, school1, POB1, FB1, birthday1,
-						nationality1);
+						nationality1,lang1);
 				students.add(s);
 			}
 			ObservableList<Student> list = FXCollections.observableArrayList();

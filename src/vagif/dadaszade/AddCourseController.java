@@ -28,9 +28,12 @@ public class AddCourseController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		for (int i = 6; i < 36; i++) {
-			courseLenght.getItems().add(i);
-		}
+//		for (int i = 3; i < 18; i+=3) {
+//			courseLenght.getItems().add(i);
+//		}
+
+		Integer[] myOwnCourseLength = { 6, 9, 12, 24, 28 };
+		courseLenght.getItems().addAll(myOwnCourseLength);
 
 		courseLenght.getSelectionModel().select(0);
 
