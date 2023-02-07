@@ -1,6 +1,5 @@
 package vagif.dadaszade;
 
-import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
@@ -15,6 +14,7 @@ import java.util.regex.Pattern;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -33,13 +33,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
 
 public class StudentsTableController implements Initializable {
 	@FXML
@@ -91,7 +89,7 @@ public class StudentsTableController implements Initializable {
 	@FXML
 	private TextField searchText;
 	@FXML
-	private CheckBox langENG,langGER,langRUS;
+	private CheckBox langENG, langGER, langRUS;
 
 	private boolean updateMode = false;
 	private int selectedStudentId = 0;
@@ -193,7 +191,7 @@ public class StudentsTableController implements Initializable {
 				st.executeUpdate("update students set name='" + name + "',surname='" + surname + "',phone='" + phone
 						+ "',adress='" + adress + "',school='" + school + "',place_og_birth='" + POB
 						+ "',favourite_book='" + FB + "',birth_day='" + birthday + "',nationality='" + nationality
-						+ "' where id ='"+selectedStudentId);
+						+ "' where id ='" + selectedStudentId);
 
 				updateMode = false;
 				newStudent.setText("New Student!");
@@ -229,7 +227,8 @@ public class StudentsTableController implements Initializable {
 				}
 
 				String phone = studentRegisterPhone.getText();
-				boolean phoneValidation=Pattern.compile("[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}").matcher(phone).matches();
+				boolean phoneValidation = Pattern.compile("[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}").matcher(phone)
+						.matches();
 				if (!phoneValidation) {
 					Utility.showMessage("Warning", "Write the phone in the correct form !", Pos.TOP_CENTER, 4);
 					return;
@@ -267,24 +266,24 @@ public class StudentsTableController implements Initializable {
 					Utility.showMessage("Warning", "Do not leave the birthday blank !", Pos.TOP_CENTER, 4);
 					return;
 				}
-				
-				String langs="";
-				if(langENG.isSelected()) {
-					langs+="English";
+
+				String langs = "";
+				if (langENG.isSelected()) {
+					langs += "English";
 				}
-				if(langGER.isSelected()) {
-					langs+="Germany";
+				if (langGER.isSelected()) {
+					langs += "Germany";
 				}
-				if(langRUS.isSelected()) {
-					langs+="Russian";
+				if (langRUS.isSelected()) {
+					langs += "Russian";
 				}
-				
-				langs=langs.trim();
-				
+
+				langs = langs.trim();
+
 				st.executeUpdate(
 						"insert into students(name,surname,phone,adress,school,place_og_birth,favourite_book,birth_day,nationality,langs) values('"
 								+ name + "','" + surname + "','" + phone + "','" + adress + "','" + school + "','" + POB
-								+ "','" + FB + "','" + birthday + "','" + nationality + "','"+ langs +"');");
+								+ "','" + FB + "','" + birthday + "','" + nationality + "','" + langs + "');");
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -323,20 +322,6 @@ public class StudentsTableController implements Initializable {
 			loadStudent();
 			studentsTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		}
-	}
-
-	String[] images = { "Delphi.png", "Fstar-official-logo-2015.png", "ISO_C++_Logo.svg.png", "java_logo.jpg",
-			"jython.png", "Python-Symbol.png", "SQL_Logo.png" };
-	int i = 0;
-
-	@FXML
-	private void showIMG() {
-		File file = new File("images/" + images[i++]);
-		if (i == images.length) {
-			i = 0;
-		}
-		Image image = new Image(file.toURI().toString());
-		ProgLanIMG.setImage(image);
 	}
 
 	private void loadStudent() {
@@ -423,17 +408,20 @@ public class StudentsTableController implements Initializable {
 			newStudent.setText("Save");
 		}
 	}
-	
+
 	@FXML
 	private void searchStudents(KeyEvent event) {
-		String search=searchText.getText();
-	
-		ObservableList<Student> list=FXCollections.observableArrayList();
-		list.addAll(Database.forSearchStudents("where name like '%"+search+"'"));
+		String search = searchText.getText();
+
+		ObservableList<Student> list = FXCollections.observableArrayList();
+		list.addAll(Database.forSearchStudents("where name like '%" + search + "'"));
 		studentsTable.setItems(list);
 	}
+
 	@FXML
 	private void addCourse(ActionEvent event) {
+		Student std = studentsTable.getSelectionModel().getSelectedItem();
+		MyReference.student = std;
 		try {
 			Stage s = new Stage();
 			s.initModality(Modality.APPLICATION_MODAL);
@@ -446,5 +434,5 @@ public class StudentsTableController implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
+
 }

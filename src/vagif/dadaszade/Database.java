@@ -16,7 +16,7 @@ public class Database {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_FX", "vagif", "2012");
 			Statement st = conn.createStatement();
-			ResultSet rs = st.executeQuery("select * from students "+query);
+			ResultSet rs = st.executeQuery("select * from students " + query);
 
 			while (rs.next()) {
 				int id = rs.getInt("id");
@@ -50,6 +50,56 @@ public class Database {
 			}
 		}
 		return students;
+	}
+
+	public static ArrayList<Course> loadCourse(String query) {
+		Connection conn = null;
+		ArrayList<Course> courses = new ArrayList<Course>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_FX", "vagif", "2012");
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery("select * from courses " + query);
+
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String name1 = rs.getString("name");
+				Course c = new Course(id, name1);
+				courses.add(c);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return courses;
+	}
+
+	public static void addCourse(int studentId, int courseId, int courseLengthNumber) {
+
+		Connection conn = null;
+		ArrayList<Course> courses = new ArrayList<Course>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_FX", "vagif", "2012");
+			Statement st = conn.createStatement();
+			st.executeUpdate("insert into students_courses (student_id,course_id,course_length) values(" + studentId
+					+ "," + courseId + "," + courseLengthNumber + ");");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
 	}
 
 }
