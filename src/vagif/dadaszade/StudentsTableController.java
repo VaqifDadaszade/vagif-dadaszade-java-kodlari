@@ -11,16 +11,20 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
@@ -31,6 +35,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 
 public class StudentsTableController implements Initializable {
 	@FXML
@@ -79,6 +88,10 @@ public class StudentsTableController implements Initializable {
 	private TableColumn<Student, String> nationalityColumn;
 	@FXML
 	private Button newStudent;
+	@FXML
+	private TextField searchText;
+	@FXML
+	private CheckBox langENG,langGER,langRUS;
 
 	private boolean updateMode = false;
 	private int selectedStudentId = 0;
@@ -216,8 +229,9 @@ public class StudentsTableController implements Initializable {
 				}
 
 				String phone = studentRegisterPhone.getText();
-				if (phone.trim().equals("")) {
-					Utility.showMessage("Warning", "Do not leave the phone blank !", Pos.TOP_CENTER, 4);
+				boolean phoneValidation=Pattern.compile("[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}").matcher(phone).matches();
+				if (!phoneValidation) {
+					Utility.showMessage("Warning", "Write the phone in the correct form !", Pos.TOP_CENTER, 4);
 					return;
 				}
 
@@ -253,10 +267,24 @@ public class StudentsTableController implements Initializable {
 					Utility.showMessage("Warning", "Do not leave the birthday blank !", Pos.TOP_CENTER, 4);
 					return;
 				}
+				
+				String langs="";
+				if(langENG.isSelected()) {
+					langs+="English";
+				}
+				if(langGER.isSelected()) {
+					langs+="Germany";
+				}
+				if(langRUS.isSelected()) {
+					langs+="Russian";
+				}
+				
+				langs=langs.trim();
+				
 				st.executeUpdate(
-						"insert into students(name,surname,phone,adress,school,place_og_birth,favourite_book,birth_day,nationality) values('"
+						"insert into students(name,surname,phone,adress,school,place_og_birth,favourite_book,birth_day,nationality,langs) values('"
 								+ name + "','" + surname + "','" + phone + "','" + adress + "','" + school + "','" + POB
-								+ "','" + FB + "','" + birthday + "','" + nationality + "');");
+								+ "','" + FB + "','" + birthday + "','" + nationality + "','"+ langs +"');");
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -395,5 +423,28 @@ public class StudentsTableController implements Initializable {
 			newStudent.setText("Save");
 		}
 	}
-
+	
+	@FXML
+	private void searchStudents(KeyEvent event) {
+		String search=searchText.getText();
+	
+		ObservableList<Student> list=FXCollections.observableArrayList();
+		list.addAll(Database.forSearchStudents("where name like '%"+search+"'"));
+		studentsTable.setItems(list);
+	}
+	@FXML
+	private void addCourse(ActionEvent event) {
+		try {
+			Stage s = new Stage();
+			s.initModality(Modality.APPLICATION_MODAL);
+			s.setTitle("Students");
+			AnchorPane a = FXMLLoader.load(getClass().getResource("AddCourse.fxml"));
+			Scene scene = new Scene(a);
+			s.setScene(scene);
+			s.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
