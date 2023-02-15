@@ -111,9 +111,14 @@
          </font>
       </Label>
       <CheckBox fx:id="langGER" layoutX="793.0" layoutY="110.0" mnemonicParsing="false" text="Germany" textFill="#f2ff00" />
-      <CheckBox fx:id="langRUS" layoutX="792.0" layoutY="190.0" mnemonicParsing="false" text="Russian" textFill="#f2ff00" />
+      <CheckBox fx:id="langRUS" layoutX="792.0" layoutY="185.0" mnemonicParsing="false" text="Russian" textFill="#f2ff00" />
       <CheckBox fx:id="langENG" layoutX="793.0" layoutY="148.0" mnemonicParsing="false" text="English" textFill="#f2ff00" />
       <Button layoutX="517.0" layoutY="448.0" mnemonicParsing="false" onAction="#addCourse" prefHeight="40.0" prefWidth="108.0" style="-fx-background-color: #629DFF;" text="Add Course">
+         <font>
+            <Font name="Britannic Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="643.0" layoutY="448.0" mnemonicParsing="false" onAction="#showStudentCourses" prefHeight="40.0" prefWidth="108.0" style="-fx-background-color: #629DFF;" text="Couses">
          <font>
             <Font name="Britannic Bold" size="16.0" />
          </font>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="662.0" prefWidth="707.0" style="-fx-background-color: #0E6655;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.MenuController">
+   <children>
+      <MenuBar prefHeight="1.0" prefWidth="216.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Main">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Courses" />
+                  <MenuItem mnemonicParsing="false" onAction="#openStudentsPage" text="Students" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <Menu mnemonicParsing="false" text="Thing..">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#openJavaPage" text="Java" />
+                        <MenuItem mnemonicParsing="false" onAction="#openSQLPage" text="SQL" />
+                    </items>
+                  </Menu>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Languages">
+            <items>
+              <MenuItem mnemonicParsing="false" text="English" />
+                  <MenuItem mnemonicParsing="false" text="Germany" />
+                  <MenuItem mnemonicParsing="false" text="Russian" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

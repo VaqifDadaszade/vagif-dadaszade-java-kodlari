@@ -4,6 +4,15 @@ public class Course {
 
 	private Integer id;
 	private String name;
+	private Integer time;
+
+	public Integer getTime() {
+		return time;
+	}
+
+	public void setTime(Integer time) {
+		this.time = time;
+	}
 
 	public Integer getId() {
 		return id;
@@ -21,6 +30,12 @@ public class Course {
 		this.name = name;
 	}
 
+	public Course(Integer id, String name, Integer time) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.time = time;
+	}
 	public Course(Integer id, String name) {
 		super();
 		this.id = id;

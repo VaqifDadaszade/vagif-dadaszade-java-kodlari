@@ -63,9 +63,39 @@ public class Database {
 			ResultSet rs = st.executeQuery("select * from courses " + query);
 
 			while (rs.next()) {
-				int id = rs.getInt("id");
+				Integer id = rs.getInt("id");
 				String name1 = rs.getString("name");
-				Course c = new Course(id, name1);
+				Course c=new Course(id,name1);
+				courses.add(c);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return courses;
+	}
+	
+	public static ArrayList<Course> loadStudentsCourse(Integer studentId) {
+		Connection conn = null;
+		ArrayList<Course> courses = new ArrayList<Course>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_FX", "vagif", "2012");
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery("select c.id,c.name,sc.course_length,sc.student_id from courses c join students_courses sc on c.id=sc.course_id where sc.student_id="+studentId+";");
+
+			while (rs.next()) {
+				int id = rs.getInt(1);
+				String name1 = rs.getString(2);
+				Integer time1=rs.getInt(3);
+				Course c = new Course(id, name1,time1);
+				c.setTime(time1);;
 				courses.add(c);
 			}
 
@@ -81,10 +111,10 @@ public class Database {
 		return courses;
 	}
 
+
 	public static void addCourse(int studentId, int courseId, int courseLengthNumber) {
 
 		Connection conn = null;
-		ArrayList<Course> courses = new ArrayList<Course>();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_FX", "vagif", "2012");

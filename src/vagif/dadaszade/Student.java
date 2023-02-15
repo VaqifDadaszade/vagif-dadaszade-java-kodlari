@@ -74,14 +74,14 @@ public class Student {
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
 	}
-	public String getLang() {
+	public String getLangs() {
 		return langs;
 	}
-	public void setLang(String lang) {
-		this.langs = lang;
+	public void setLangs(String langs) {
+		this.langs = langs;
 	}
 	public Student(Integer id, String name, String surname, String phone, String adress, String school,
-			String place_og_birth, String favourite_book, LocalDate birth_day, String nationality, String lang) {
+			String place_og_birth, String favourite_book, LocalDate birth_day, String nationality, String langs) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -93,7 +93,8 @@ public class Student {
 		this.favourite_book = favourite_book;
 		this.birth_day = birth_day;
 		this.nationality = nationality;
-		this.langs = lang;
+		this.langs = langs;
 	}
+	
 	
 }

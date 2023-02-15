@@ -85,7 +85,7 @@ public class StudentsTableController implements Initializable {
 	@FXML
 	private TableColumn<Student, String> nationalityColumn;
 	@FXML
-	private TableColumn<Student,String> langcolumn;
+	private TableColumn<Student,String> langColumn;
 	@FXML
 	private Button newStudent;
 	@FXML
@@ -320,7 +320,8 @@ public class StudentsTableController implements Initializable {
 			fbColumn.setCellValueFactory(new PropertyValueFactory<>("favourite_book"));
 			birthDayColumn.setCellValueFactory(new PropertyValueFactory<>("birth_day"));
 			nationalityColumn.setCellValueFactory(new PropertyValueFactory<>("nationality"));
-
+			langColumn.setCellValueFactory(new PropertyValueFactory<>("langs"));
+			
 			loadStudent();
 			studentsTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		}
@@ -424,12 +425,36 @@ public class StudentsTableController implements Initializable {
 	@FXML
 	private void addCourse(ActionEvent event) {
 		Student std = studentsTable.getSelectionModel().getSelectedItem();
+		if(std==null) {
+			Utility.showMessage("Warning", "Select a student from the list !", Pos.TOP_CENTER, 4);
+			return;
+		}
 		MyReference.student = std;
 		try {
 			Stage s = new Stage();
 			s.initModality(Modality.APPLICATION_MODAL);
-			s.setTitle("Students");
+			s.setTitle("Courses");
 			AnchorPane a = FXMLLoader.load(getClass().getResource("AddCourse.fxml"));
+			Scene scene = new Scene(a);
+			s.setScene(scene);
+			s.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@FXML
+	private void showStudentCourses(ActionEvent event) {
+		Student std = studentsTable.getSelectionModel().getSelectedItem();
+		if(std==null) {
+			Utility.showMessage("Warning", "Select a student from the list !", Pos.TOP_CENTER, 4);
+			return;
+		}
+		MyReference.student = std;
+		try {
+			Stage s = new Stage();
+			s.initModality(Modality.APPLICATION_MODAL);
+			s.setTitle("Student's Courses");
+			AnchorPane a = FXMLLoader.load(getClass().getResource("StudentsCourses.fxml"));
 			Scene scene = new Scene(a);
 			s.setScene(scene);
 			s.show();

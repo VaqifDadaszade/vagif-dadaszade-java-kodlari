@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="316.0" prefWidth="709.0" style="-fx-background-color: #0E6655;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutY="21.0" prefHeight="39.0" prefWidth="547.0" text="Abot the SQL:" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutY="66.0" prefHeight="242.0" prefWidth="709.0" text="SQL is a language to operate databases; it includes Database Creation, Database Deletion, Fetching Data Rows, Modifying &amp; Deleting Data rows, etc.SQL stands for Structured Query Language which is a computer language for storing, manipulating and retrieving data stored in a relational database. SQL was developed in the 1970s by IBM Computer Scientists and became a standard of the American National Standards Institute (ANSI) in 1986, and the International Organization for Standardization (ISO) in 1987.SQL is the standard language to communicate with Relational Database Systems. All the Relational Database Management Systems (RDMS) like MySQL, MS Access, Oracle, Sybase, Informix, Postgres and SQL Server use SQL as their Standard Database Language." textFill="#efec00" wrapText="true">
+         <font>
+            <Font name="Britannic Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

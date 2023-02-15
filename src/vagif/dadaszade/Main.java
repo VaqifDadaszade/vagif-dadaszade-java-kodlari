@@ -12,8 +12,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Students2Table.fxml"));
-			Scene scene = new Scene(root,823,700);
+//			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Students2Table.fxml"));
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Menus.fxml"));
+			Scene scene = new Scene(root,707,662);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			Image image = new Image("icon/Student.png");
