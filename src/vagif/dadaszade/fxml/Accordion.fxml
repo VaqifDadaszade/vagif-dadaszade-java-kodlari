@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="484.0" prefWidth="466.0" style="-fx-background-color: #0E6655;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="vagif.dadaszade.controller.AccordionController">
+   <children>
+      <Accordion layoutX="74.0" layoutY="49.0" style="-fx-background-color: #0E6655;">
+        <panes>
+          <TitledPane text="Books">
+            <content>
+              <AnchorPane maxHeight="165.0" minHeight="0.0" minWidth="0.0" prefHeight="165.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton layoutX="19.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="86.0" text="Fantasy">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Books" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="19.0" layoutY="20.0" mnemonicParsing="false" text="Adventure stories" toggleGroup="$Books" />
+                        <RadioButton layoutX="19.0" layoutY="120.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="86.0" text="Crime" toggleGroup="$Books" />
+                        <RadioButton layoutX="19.0" layoutY="40.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="86.0" text="Mystery" toggleGroup="$Books" />
+                        <RadioButton layoutX="19.0" layoutY="60.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="95.0" text="Romance" toggleGroup="$Books" />
+                        <RadioButton layoutX="19.0" layoutY="80.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="86.0" text="Horror" toggleGroup="$Books" />
+                        <RadioButton layoutX="19.0" layoutY="100.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="86.0" text="War" toggleGroup="$Books" />
+                        <RadioButton layoutX="19.0" layoutY="140.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="86.0" text="Classics" toggleGroup="$Books" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane text="Computers">
+            <content>
+              <AnchorPane maxHeight="110.0" minHeight="0.0" minWidth="0.0" prefHeight="110.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton layoutX="19.0" layoutY="20.0" mnemonicParsing="false" text="Game">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Comp" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="19.0" layoutY="50.0" mnemonicParsing="false" text="Officce" toggleGroup="$Comp" />
+                        <RadioButton layoutX="19.0" layoutY="80.0" mnemonicParsing="false" text="Developer" toggleGroup="$Comp" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane maxHeight="180.0" prefHeight="180.0" prefWidth="202.0" text="Cars">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="130.0">
+                     <children>
+                        <CheckBox layoutX="20.0" layoutY="120.0" mnemonicParsing="false" text="Mercedes" />
+                        <CheckBox layoutX="20.0" layoutY="20.0" mnemonicParsing="false" text="BMW" />
+                        <CheckBox layoutX="20.0" layoutY="40.0" mnemonicParsing="false" text="KIA" />
+                        <CheckBox layoutX="20.0" layoutY="100.0" mnemonicParsing="false" text="Ford" />
+                        <CheckBox layoutX="20.0" layoutY="60.0" mnemonicParsing="false" text="Hyundai" />
+                        <CheckBox layoutX="20.0" layoutY="80.0" mnemonicParsing="false" text="TOYOTA" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+   </children>
+</AnchorPane>
