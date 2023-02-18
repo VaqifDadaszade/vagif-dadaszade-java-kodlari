@@ -51,6 +51,21 @@ public class MenuController implements Initializable{
 	}
 	
 	@FXML
+	private void openLogin(ActionEvent event) {
+		try {
+			Stage s = new Stage();
+			s.initModality(Modality.APPLICATION_MODAL);
+			s.setTitle("Login");
+			AnchorPane a = FXMLLoader.load(getClass().getResource("Login.fxml"));
+			Scene scene = new Scene(a);
+			s.setScene(scene);
+			s.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
 	private void openStudentsPage(ActionEvent event) {
 		try {
 			Stage s = new Stage();
