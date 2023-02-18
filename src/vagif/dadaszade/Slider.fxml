@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="512.0" prefWidth="593.0" style="-fx-background-color: #0E6655;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.controller.SliderController">
+<AnchorPane prefHeight="512.0" prefWidth="593.0" styleClass="root" stylesheets="@../../CssStyle/CssStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.controller.SliderController">
    <children>
       <Slider fx:id="sliderComp" layoutX="110.0" layoutY="51.0" majorTickUnit="10.0" minorTickCount="5" onDragDetected="#dragged" onMouseClicked="#onMouseClicked" onMouseDragged="#onMouseDragged" onScroll="#onScroll" prefHeight="39.0" prefWidth="373.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: #efec00;" />
       <Circle fx:id="circle" fill="#efec00" layoutX="302.0" layoutY="297.0" radius="180.0" stroke="DODGERBLUE" strokeLineJoin="ROUND" />
