@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: darkviolet;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="vagif.dadaszade.controller.ToggleButtonController">
+   <children>
+      <ToggleButton fx:id="actButton" layoutX="45.0" layoutY="38.0" mnemonicParsing="false" onAction="#activated" prefHeight="62.0" prefWidth="159.0" style="-fx-background-color: white;" text="ON/OFF" textFill="#efec00">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </ToggleButton>
+   </children>
+</AnchorPane>

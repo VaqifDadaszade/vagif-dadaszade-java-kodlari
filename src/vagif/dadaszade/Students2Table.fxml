@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="783.0" prefWidth="970.0" styleClass="root" stylesheets="@../../CssStyle/CssStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.StudentsTableController">
+<AnchorPane prefHeight="783.0" prefWidth="970.0" styleClass="root" stylesheets="@../../CssStyle/MyStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.StudentsTableController">
    <children>
       <Label layoutX="154.0" prefHeight="68.0" prefWidth="708.0" text="You have come to the student registration page!" textFill="#efec00">
          <font>

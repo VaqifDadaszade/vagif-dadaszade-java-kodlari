@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="524.0" prefWidth="761.0" style="-fx-background-color: darkviolet;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="vagif.dadaszade.controller.ProgressBarController">
+   <children>
+      <ProgressBar fx:id="myProgressBar" layoutX="79.0" layoutY="33.0" prefHeight="53.0" prefWidth="603.0" progress="0.0" />
+      <Button layoutX="79.0" layoutY="164.0" mnemonicParsing="false" onAction="#begin" prefHeight="53.0" prefWidth="134.0" style="-fx-background-color: green;" text="Move" textFill="#efec00">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

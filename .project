@@ -67,11 +67,6 @@
 			<location>D:/Games/StudentB.jpg</location>
 		</link>
 		<link>
-			<name>src/Image/StudentsBack.jpg</name>
-			<type>1</type>
-			<location>D:/Games/StudentsBack.jpg</location>
-		</link>
-		<link>
 			<name>src/icon/Student.png</name>
 			<type>1</type>
 			<location>C:/Users/User/Vagif/Yeni klasör/Student.png</location>
