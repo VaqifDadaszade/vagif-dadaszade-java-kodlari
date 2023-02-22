@@ -8,7 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ToggleButton;
 
-public class ToggleButtonController implements Initializable{
+public class MyComponnetsController implements Initializable{
 	@FXML
 	private ToggleButton actButton;
 	
