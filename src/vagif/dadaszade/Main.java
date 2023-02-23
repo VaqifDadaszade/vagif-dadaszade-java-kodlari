@@ -13,8 +13,8 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			//AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Login.fxml"));
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("fxml/MyComponnets.fxml"));
-			Scene scene = new Scene(root,761,524);
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("fxml/MyBrowser.fxml"));
+			Scene scene = new Scene(root,900,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			Image image = new Image("icon/Student.png");
