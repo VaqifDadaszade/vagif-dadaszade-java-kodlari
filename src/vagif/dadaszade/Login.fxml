@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" styleClass="root" stylesheets="@../../CssStyle/MyStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.LoginController">
 	<children>
 		<Label layoutX="22.0" layoutY="14.0" prefHeight="61.0" prefWidth="143.0" text="Username" textFill="#efec00">
 			<font>
@@ -24,6 +24,9 @@
 			<font>
 				<Font name="Britannic Bold" size="24.0" />
 			</font>
+         <tooltip>
+            <Tooltip text="Login to Account" />
+         </tooltip>
 		</Button>
 	</children>
 </AnchorPane>

@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: darkviolet;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="vagif.dadaszade.controller.MyComponnetsController">
+<AnchorPane prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: darkviolet;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.controller.MyComponnetsController">
    <children>
       <ToggleButton fx:id="actButton" layoutX="45.0" layoutY="38.0" mnemonicParsing="false" onAction="#activated" prefHeight="62.0" prefWidth="159.0" style="-fx-background-color: white;" text="ON/OFF" textFill="#efec00">
          <font>
@@ -16,6 +15,22 @@
          </font>
       </ToggleButton>
       <ColorPicker fx:id="captainColor" layoutX="76.0" layoutY="109.0" />
-      <Button layoutX="68.0" layoutY="157.0" mnemonicParsing="false" onAction="#showColorCode" prefHeight="43.0" prefWidth="114.0" style="-fx-background-color: darkgreen;" text="Button" textFill="#efec00" />
+      <Button layoutX="68.0" layoutY="157.0" mnemonicParsing="false" onAction="#showColorCode" prefHeight="43.0" prefWidth="114.0" style="-fx-background-color: darkgreen;" text="Button" textFill="#efec00">
+         <tooltip>
+            <Tooltip text="Displays the HEX code of the colors added to the color picker in the console." wrapText="true">
+               <font>
+                  <Font name="Britannic Bold" size="20.0" />
+               </font>
+            </Tooltip>
+         </tooltip></Button>
+      <ToolBar layoutX="45.0" layoutY="236.0" prefHeight="45.0" prefWidth="711.0">
+        <items>
+          <Button mnemonicParsing="false" text="Save" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Run" />
+            <Button layoutX="80.0" layoutY="10.0" mnemonicParsing="false" text="Print" />
+            <Button layoutX="80.0" layoutY="10.0" mnemonicParsing="false" text="Preview" />
+            <Button layoutX="173.0" layoutY="10.0" mnemonicParsing="false" text="About us" />
+        </items>
+      </ToolBar>
    </children>
 </AnchorPane>
