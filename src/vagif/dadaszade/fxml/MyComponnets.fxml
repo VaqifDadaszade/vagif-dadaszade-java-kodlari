@@ -9,13 +9,49 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: darkviolet;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.controller.MyComponnetsController">
    <children>
-      <ToggleButton fx:id="actButton" layoutX="45.0" layoutY="38.0" mnemonicParsing="false" onAction="#activated" prefHeight="62.0" prefWidth="159.0" style="-fx-background-color: white;" text="ON/OFF" textFill="#efec00">
+      <ToolBar layoutX="28.0" layoutY="78.0" prefHeight="45.0" prefWidth="711.0">
+        <items>
+          <Button mnemonicParsing="false" text="Save" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Run" />
+            <Button layoutX="80.0" layoutY="10.0" mnemonicParsing="false" text="Print" />
+            <Button layoutX="80.0" layoutY="10.0" mnemonicParsing="false" text="Preview" />
+            <Button layoutX="173.0" layoutY="10.0" mnemonicParsing="false" text="About us" />
+        </items>
+      </ToolBar>
+      <SplitPane dividerPositions="0.19363395225464192" layoutX="22.0" layoutY="189.0" prefHeight="481.0" prefWidth="756.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Button layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="142.0" text="Project1" />
+                  <Button layoutY="45.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="142.0" text="Project2" />
+                  <Button layoutY="76.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="142.0" text="Project3" />
+                  <Button layoutY="107.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="142.0" text="Project4" />
+                  <Button layoutY="138.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="142.0" text="Project5" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="497.0">
+               <children>
+                  <SplitPane dividerPositions="0.03669724770642202" layoutY="368.0" orientation="VERTICAL" prefHeight="111.0" prefWidth="604.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="602.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="110.0" prefWidth="602.0">
+                           <children>
+                              <Button layoutY="-1.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="143.0" text="Console" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+                  <TextArea layoutY="-2.0" prefHeight="372.0" prefWidth="604.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <ToggleButton fx:id="actButton" layoutX="34.0" layoutY="22.0" mnemonicParsing="false" onAction="#activated" prefHeight="62.0" prefWidth="159.0" style="-fx-background-color: white;" text="ON/OFF" textFill="#efec00">
          <font>
             <Font size="20.0" />
          </font>
       </ToggleButton>
-      <ColorPicker fx:id="captainColor" layoutX="76.0" layoutY="109.0" />
-      <Button layoutX="68.0" layoutY="157.0" mnemonicParsing="false" onAction="#showColorCode" prefHeight="43.0" prefWidth="114.0" style="-fx-background-color: darkgreen;" text="Button" textFill="#efec00">
+      <Button layoutX="218.0" layoutY="22.0" mnemonicParsing="false" onAction="#showColorCode" prefHeight="43.0" prefWidth="114.0" style="-fx-background-color: darkgreen;" text="Button" textFill="#efec00">
          <tooltip>
             <Tooltip text="Displays the HEX code of the colors added to the color picker in the console." wrapText="true">
                <font>
@@ -25,20 +61,13 @@
          </tooltip>
          <font>
             <Font name="Britannic Bold" size="18.0" />
-         </font></Button>
-      <ToolBar layoutX="45.0" layoutY="236.0" prefHeight="45.0" prefWidth="711.0">
-        <items>
-          <Button mnemonicParsing="false" text="Save" />
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Run" />
-            <Button layoutX="80.0" layoutY="10.0" mnemonicParsing="false" text="Print" />
-            <Button layoutX="80.0" layoutY="10.0" mnemonicParsing="false" text="Preview" />
-            <Button layoutX="173.0" layoutY="10.0" mnemonicParsing="false" text="About us" />
-        </items>
-      </ToolBar>
-      <Button fx:id="fileChoose" layoutX="54.0" layoutY="299.0" mnemonicParsing="false" onAction="#fileChooser" prefHeight="51.0" prefWidth="143.0" style="-fx-background-color: darkgreen;" text="Button" textFill="#efec00">
+         </font>
+      </Button>
+      <Button fx:id="fileChoose" layoutX="363.0" layoutY="18.0" mnemonicParsing="false" onAction="#fileChooser" prefHeight="51.0" prefWidth="143.0" style="-fx-background-color: darkgreen;" text="Button" textFill="#efec00">
          <font>
             <Font name="Britannic Bold" size="20.0" />
          </font>
       </Button>
+      <ColorPicker fx:id="captainColor" layoutX="533.0" layoutY="22.0" prefHeight="43.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
