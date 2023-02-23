@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.controller.MyBrowserController">
+<AnchorPane prefHeight="806.0" prefWidth="1001.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.controller.MyBrowserController">
    <children>
-      <TextField fx:id="myAddress" layoutX="57.0" layoutY="34.0" onAction="#goSite" prefHeight="41.0" prefWidth="787.0" promptText="Enter the WebSite Address" />
+      <TextField fx:id="myAddress" layoutX="57.0" layoutY="34.0" onAction="#goSite" prefHeight="41.0" prefWidth="889.0" promptText="Enter the WebSite Address" />
       <Button layoutX="207.0" layoutY="124.0" mnemonicParsing="false" onAction="#showHistory" prefHeight="54.0" prefWidth="134.0" style="-fx-background-color: darkgreen;" text="History" textFill="#efec00">
          <font>
             <Font name="Britannic Bold" size="20.0" />
@@ -20,7 +20,7 @@
             <Font name="Britannic Bold" size="20.0" />
          </font>
       </Button>
-      <WebView fx:id="myWeb" layoutX="26.0" layoutY="222.0" prefHeight="454.0" prefWidth="849.0" />
+      <WebView fx:id="myWeb" layoutX="26.0" layoutY="605.0" prefHeight="71.0" prefWidth="849.0" />
       <Button layoutX="352.0" layoutY="124.0" mnemonicParsing="false" onAction="#undo" prefHeight="54.0" prefWidth="75.0" style="-fx-background-color: darkgreen;" text="&lt;---" textFill="#efec00">
          <font>
             <Font name="Britannic Bold" size="20.0" />
@@ -31,5 +31,6 @@
             <Font name="Britannic Bold" size="20.0" />
          </font>
       </Button>
+      <BorderPane layoutY="280.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
