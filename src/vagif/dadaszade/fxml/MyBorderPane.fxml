@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.controller.MyBorderPaneController">
+<BorderPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.controller.MyBorderPaneControllero">
    <children>
       <WebView fx:id="myWeb" layoutX="26.0" layoutY="222.0" prefHeight="454.0" prefWidth="849.0" />
    </children>
