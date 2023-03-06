@@ -101,6 +101,8 @@ public class StudentsTableController implements Initializable {
 	private void saveStudentToDatabase() {
 		if (updateMode) {
 
+			//burda redaktə kodu olacaq
+			
 			Connection conn = null;
 
 			try {
@@ -210,6 +212,9 @@ public class StudentsTableController implements Initializable {
 			}
 			loadStudent();
 		} else {
+			
+			//insert kodu bura yazılır
+			
 			Connection conn = null;
 
 			try {
@@ -284,9 +289,9 @@ public class StudentsTableController implements Initializable {
 				langs = langs.trim();
 
 				st.executeUpdate(
-						"insert into students(name,surname,phone,adress,school,place_og_birth,favourite_book,birth_day,nationality,langs) values('"
+						"insert into students(name,surname,phone,adress,school,place_og_birth,favourite_book,birth_day,nationality,langs,teacher_username) values('"
 								+ name + "','" + surname + "','" + phone + "','" + adress + "','" + school + "','" + POB
-								+ "','" + FB + "','" + birthday + "','" + nationality + "','" + langs + "');");
+								+ "','" + FB + "','" + birthday + "','" + nationality + "','" + langs + "','" + LoginController.loginUsername + "');");
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -302,26 +307,26 @@ public class StudentsTableController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+
 		studentRegisterName.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
 
 			@Override
 			public void handle(KeyEvent e) {
-				TextField tf=(TextField) e.getSource();
-				if(tf.getText().length()>=15) {
-					if(tf.getText().length()>=15) {
+				TextField tf = (TextField) e.getSource();
+				if (tf.getText().length() >= 15) {
+					if (tf.getText().length() >= 15) {
 						tf.setText(tf.getText().substring(0, 15));
 					}
-					e.consume(); //Hadisəni ləğv edən metod
+					e.consume(); // Hadisəni ləğv edən metod
 				}
-				if(e.getCharacter().matches("[0-9]")) {
-					
-				}else {
+				if (e.getCharacter().matches("[a-z]")) {
+
+				} else {
 					e.consume();
 				}
 			}
 		});
-		
+
 		{
 			studentNationality.getItems().add("AZE");
 			studentNationality.getItems().add("RUS");
