@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="460.0" prefWidth="824.0" styleClass="root" stylesheets="@../../CssStyle/MyStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.SignupController">
+	<children>
+		<Label layoutX="22.0" layoutY="14.0" prefHeight="61.0" prefWidth="143.0" text="Username" textFill="#efec00">
+			<font>
+				<Font name="Britannic Bold" size="26.0" />
+			</font>
+		</Label>
+		<TextField fx:id="usernameText" layoutX="22.0" layoutY="89.0" prefHeight="40.0" prefWidth="280.0" promptText="Enter Username" style="-fx-background-color: yellow;" />
+		<Label layoutX="22.0" layoutY="153.0" prefHeight="61.0" prefWidth="143.0" text="Password" textFill="#efec00">
+			<font>
+				<Font name="Britannic Bold" size="26.0" />
+			</font>
+		</Label>
+		<PasswordField fx:id="passwordText" layoutX="22.0" layoutY="230.0" prefHeight="40.0" prefWidth="280.0" promptText="Enter Password" style="-fx-background-color: yellow;" />
+		<Button layoutX="22.0" layoutY="292.0" mnemonicParsing="false" onAction="#onLogin" prefHeight="51.0" prefWidth="191.0" style="-fx-background-color: #629DFF;" text="Back to Login">
+			<font>
+				<Font name="Britannic Bold" size="24.0" />
+			</font>
+         <tooltip>
+            <Tooltip text="Login to Account" />
+         </tooltip>
+		</Button>
+      <Button layoutX="254.0" layoutY="292.0" mnemonicParsing="false" onAction="#onSignUp" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: #629DFF;" text="Create Account">
+         <font>
+            <Font name="Britannic Bold" size="24.0" />
+         </font>
+         <tooltip>
+            <Tooltip text="Login to Account" />
+         </tooltip>
+      </Button>
+      <TextField fx:id="teacherName" layoutX="482.0" layoutY="89.0" prefHeight="40.0" prefWidth="280.0" promptText="Enter Name" style="-fx-background-color: yellow;" />
+      <Label layoutX="482.0" layoutY="14.0" prefHeight="61.0" prefWidth="143.0" text="Name" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="482.0" layoutY="153.0" prefHeight="61.0" prefWidth="143.0" text="Surname" textFill="#efec00">
+         <font>
+            <Font name="Britannic Bold" size="26.0" />
+         </font>
+      </Label>
+      <TextField fx:id="teacherSurname" layoutX="485.0" layoutY="230.0" prefHeight="40.0" prefWidth="280.0" promptText="Enter Surname" style="-fx-background-color: yellow;" />
+	</children>
+</AnchorPane>

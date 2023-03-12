@@ -1,21 +1,19 @@
 package vagif.dadaszade;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.Statement;
-import java.time.LocalDate;
-import java.util.ArrayList;
-
 import org.controlsfx.control.Notifications;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Utility {
+	
+	public static Stage loginStage;
+	public static Stage signupStage;
+	
 	public static void showMessage(String title,String message,Pos p,int duration) {
 		Notifications.create()
 		.title(title)

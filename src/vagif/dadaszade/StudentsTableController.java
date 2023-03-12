@@ -101,8 +101,8 @@ public class StudentsTableController implements Initializable {
 	private void saveStudentToDatabase() {
 		if (updateMode) {
 
-			//burda redaktə kodu olacaq
-			
+			// burda redaktə kodu olacaq
+
 			Connection conn = null;
 
 			try {
@@ -212,9 +212,9 @@ public class StudentsTableController implements Initializable {
 			}
 			loadStudent();
 		} else {
-			
-			//insert kodu bura yazılır
-			
+
+			// insert kodu bura yazılır
+
 			Connection conn = null;
 
 			try {
@@ -291,7 +291,8 @@ public class StudentsTableController implements Initializable {
 				st.executeUpdate(
 						"insert into students(name,surname,phone,adress,school,place_og_birth,favourite_book,birth_day,nationality,langs,teacher_username) values('"
 								+ name + "','" + surname + "','" + phone + "','" + adress + "','" + school + "','" + POB
-								+ "','" + FB + "','" + birthday + "','" + nationality + "','" + langs + "','" + LoginController.loginUsername + "');");
+								+ "','" + FB + "','" + birthday + "','" + nationality + "','" + langs + "','"
+								+ LoginController.loginUsername + "');");
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -307,6 +308,28 @@ public class StudentsTableController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		studentRegisterSurName.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
+
+			@Override
+			public void handle(KeyEvent e0) {
+				TextField tf = (TextField) e0.getSource();
+				if (tf.getText().length() >= 15) {
+					if (tf.getText().length() >= 15) {
+						tf.setText(tf.getText().substring(0, 15));
+					}
+					e0.consume(); // Hadisəni ləğv edən metod
+				}
+				if (e0.getCharacter().matches("[A-z]")) {
+
+				} else {
+					e0.consume();
+				}
+			}
+			
+			
+			
+		});
 
 		studentRegisterName.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
 
@@ -319,7 +342,7 @@ public class StudentsTableController implements Initializable {
 					}
 					e.consume(); // Hadisəni ləğv edən metod
 				}
-				if (e.getCharacter().matches("[a-z]")) {
+				if (e.getCharacter().matches("[A-z]")) {
 
 				} else {
 					e.consume();

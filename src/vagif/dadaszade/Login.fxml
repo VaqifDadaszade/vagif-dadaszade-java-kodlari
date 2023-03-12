@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" styleClass="root" stylesheets="@../../CssStyle/MyStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.LoginController">
+<AnchorPane prefHeight="497.0" prefWidth="400.0" styleClass="root" stylesheets="@../../CssStyle/MyStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vagif.dadaszade.LoginController">
 	<children>
 		<Label layoutX="22.0" layoutY="14.0" prefHeight="61.0" prefWidth="143.0" text="Username" textFill="#efec00">
 			<font>
@@ -28,5 +28,18 @@
             <Tooltip text="Login to Account" />
          </tooltip>
 		</Button>
+      <Label layoutX="33.0" layoutY="373.0" prefHeight="19.0" prefWidth="335.0" text="If you don't have an account, create one!" textFill="#00ccff">
+         <font>
+            <Font name="Britannic Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="61.0" layoutY="414.0" mnemonicParsing="false" onAction="#goSignup" prefHeight="51.0" prefWidth="275.0" style="-fx-background-color: #629DFF;" text="Go to SignUp">
+         <font>
+            <Font name="Britannic Bold" size="24.0" />
+         </font>
+         <tooltip>
+            <Tooltip text="Login to Account" />
+         </tooltip>
+      </Button>
 	</children>
 </AnchorPane>

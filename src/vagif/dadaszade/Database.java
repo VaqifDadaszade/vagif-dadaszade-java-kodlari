@@ -113,8 +113,8 @@ public class Database {
 
 
 	public static void addCourse(int studentId, int courseId, int courseLengthNumber) {
-
 		Connection conn = null;
+		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_FX", "vagif", "2012");
@@ -133,4 +133,48 @@ public class Database {
 
 	}
 
+	public static void createTeacherAccount(String username, String password, String name, String surname) {
+		Connection conn = null;
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_FX", "vagif", "2012");
+			Statement st = conn.createStatement();
+			st.executeUpdate("insert into teachers (name,surname,username,password) values(" + name
+					+ "," + surname + "," + username + "," + password + ");");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}	
+		
+	}
+
+	public static boolean checkUser(String username) {
+		Connection conn=null;
+		boolean b=false;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_FX", "vagif", "2012");
+			Statement st = conn.createStatement();
+			ResultSet rs=st.executeQuery("select * from teachers where username='"+username+"'");
+			if(rs.next()) {
+				b=true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return false;
+	}
+	
 }

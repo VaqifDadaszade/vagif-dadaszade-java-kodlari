@@ -50,6 +50,24 @@ public class LoginController {
 		}
 
 	}
+	@FXML
+	private void goSignup() {
+
+		try {
+			Stage s = new Stage();
+			Utility.signupStage=s;
+			s.initModality(Modality.APPLICATION_MODAL);
+			s.setTitle("Students");
+			AnchorPane a = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
+			Scene scene = new Scene(a);
+			s.setScene(scene);
+			s.show();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 
 	private boolean login(String username, String password) {
 		boolean b = false;
