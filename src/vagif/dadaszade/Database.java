@@ -140,8 +140,7 @@ public class Database {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_FX", "vagif", "2012");
 			Statement st = conn.createStatement();
-			st.executeUpdate("insert into teachers (name,surname,username,password) values(" + name
-					+ "," + surname + "," + username + "," + password + ");");
+			st.executeUpdate("insert into teachers (name,surname,username,password) values ('"+name+"','" + surname + "','" + username + "','" + password + "')");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
